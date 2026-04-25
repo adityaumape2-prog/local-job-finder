@@ -90,14 +90,20 @@ document.querySelectorAll('input[type="tel"], input[name="phone"], input[name="c
 
 // ======== AUTO-HIDE ALERTS ========
 // Automatically hide success/error messages after 5 seconds
+// Only target alerts that are currently visible (not hidden template alerts)
 const alerts = document.querySelectorAll('.alert');
-alerts.forEach(function (alert) {
+alerts.forEach(function (alertEl) {
+    // Skip hidden alerts — they are templates shown dynamically by form handlers
+    if (alertEl.style.display === 'none') return;
+    
     setTimeout(function () {
-        alert.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-        alert.style.opacity = '0';
-        alert.style.transform = 'translateY(-10px)';
+        alertEl.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        alertEl.style.opacity = '0';
+        alertEl.style.transform = 'translateY(-10px)';
         setTimeout(function () {
-            alert.remove();
+            alertEl.style.display = 'none';
+            alertEl.style.opacity = '1';
+            alertEl.style.transform = '';
         }, 500);
     }, 5000);
 });
@@ -163,13 +169,20 @@ if (statsSection) {
 // ======== SMOOTH SCROLL FOR ANCHOR LINKS ========
 document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        // Skip bare '#' links (used for SPA navigation via onclick handlers)
+        if (!href || href === '#') return;
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+        try {
+            const target = document.querySelector(href);
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        } catch (err) {
+            // Invalid selector, ignore
         }
     });
 });
