@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Local Job Finder - Connecting daily wage workers with local employers.">
+    <title>Local Job Finder — Connecting Workers with Employers</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* SPA Navigation Styles */
+        .page { display: none; }
+        .page.active { display: block; }
+
+    </style>
+</head>
+<body>
+
+
+
+<!-- ======== NAVIGATION BAR ======== -->
+<nav class="navbar" id="main-navbar">
+    <div class="container nav-container">
+        <a href="#" class="nav-brand" onclick="showPage('home')">
+            <i class="fas fa-briefcase"></i>
+            <span>JobFinder</span>
+        </a>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#" onclick="showPage('home')" class="active" data-page="home"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#" onclick="showPage('register')" data-page="register"><i class="fas fa-user-plus"></i> Register</a></li>
+            <li><a href="#" onclick="showPage('post-job')" data-page="post-job"><i class="fas fa-plus-circle"></i> Post Job</a></li>
+            <li><a href="#" onclick="showPage('jobs')" data-page="jobs"><i class="fas fa-search"></i> Find Jobs</a></li>
+            <li><a href="#" onclick="showPage('contact')" data-page="contact"><i class="fas fa-envelope"></i> Contact</a></li>
+            <li><a href="#" onclick="showPage('admin')" class="nav-btn"><i class="fas fa-lock"></i> Admin</a></li>
+        </ul>
+    </div>
+</nav>
+
+<main class="main-content">
+
+<!-- ==================== HOME PAGE ==================== -->
+<div class="page active" id="page-home">
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-star"></i> Community Engagement Program
+                </div>
+                <h1>Find Local Jobs <br><span class="highlight">Near You Today</span></h1>
+                <p>Connecting daily wage workers — plumbers, electricians, carpenters, painters — with local employers. Register your skills and start finding work in your community.</p>
+                <div class="hero-buttons">
+                    <a href="#" onclick="showPage('register')" class="btn btn-primary" id="hero-register-btn">
+                        <i class="fas fa-user-plus"></i> Register as Worker
+                    </a>
+                    <a href="#" onclick="showPage('jobs')" class="btn btn-secondary" id="hero-find-jobs-btn">
+                        <i class="fas fa-search"></i> Find Jobs
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card fade-in">
+                    <div class="stat-icon blue"><i class="fas fa-users"></i></div>
+                    <div class="stat-number" data-count="5">5+</div>
+                    <div class="stat-label">Registered Workers</div>
+                </div>
+                <div class="stat-card fade-in fade-in-delay-1">
+                    <div class="stat-icon orange"><i class="fas fa-briefcase"></i></div>
+                    <div class="stat-number" data-count="5">5+</div>
+                    <div class="stat-label">Jobs Posted</div>
+                </div>
+                <div class="stat-card fade-in fade-in-delay-2">
+                    <div class="stat-icon green"><i class="fas fa-tools"></i></div>
+                    <div class="stat-number" data-count="10">10+</div>
+                    <div class="stat-label">Skill Categories</div>
+                </div>
+                <div class="stat-card fade-in fade-in-delay-3">
+                    <div class="stat-icon purple"><i class="fas fa-map-marker-alt"></i></div>
+                    <div class="stat-number" data-count="15">15+</div>
+                    <div class="stat-label">Locations Covered</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section" id="skills">
+        <div class="container">
+            <div class="section-header">
+                <div class="badge"><i class="fas fa-tools"></i> Our Categories</div>
+                <h2>Skills We Cover</h2>
+                <p>We connect employers with skilled workers across various trades and professions</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon"><i class="fas fa-wrench"></i></div>
+                    <h3>Plumber</h3>
+                    <p>Pipe fitting, leak repairs, bathroom installations and all plumbing work</p>
+                </div>
+                <div class="feature-card fade-in fade-in-delay-1">
+                    <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+                    <h3>Electrician</h3>
+                    <p>Wiring, switch repairs, appliance installation and electrical maintenance</p>
+                </div>
+                <div class="feature-card fade-in fade-in-delay-2">
+                    <div class="feature-icon"><i class="fas fa-hammer"></i></div>
+                    <h3>Carpenter</h3>
+                    <p>Furniture making, wood repairs, doors, windows and custom woodwork</p>
+                </div>
+                <div class="feature-card fade-in fade-in-delay-3">
+                    <div class="feature-icon"><i class="fas fa-paint-roller"></i></div>
+                    <h3>Painter</h3>
+                    <p>Wall painting, house renovation, texture work and decorative finishes</p>
+                </div>
+                <div class="feature-card fade-in fade-in-delay-4">
+                    <div class="feature-icon"><i class="fas fa-hard-hat"></i></div>
+                    <h3>Laborer</h3>
+                    <p>Construction work, loading, shifting and general manual labor tasks</p>
+                </div>
+                <div class="feature-card fade-in fade-in-delay-4">
+                    <div class="feature-icon"><i class="fas fa-ellipsis-h"></i></div>
+                    <h3>And More</h3>
+                    <p>Welders, masons, cleaners, gardeners and many more skilled trades</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section" style="background: var(--bg-white);" id="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <div class="badge"><i class="fas fa-info-circle"></i> Simple Process</div>
+                <h2>How It Works</h2>
+                <p>Three simple steps to connect workers with employers</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card fade-in">
+                    <div class="step-number">1</div>
+                    <h3>Register Your Skills</h3>
+                    <p>Workers sign up with their name, phone, skill type and location — it takes just a minute!</p>
+                </div>
+                <div class="step-card fade-in fade-in-delay-1">
+                    <div class="step-number">2</div>
+                    <h3>Employers Post Jobs</h3>
+                    <p>Employers post job requirements with description, location and contact details</p>
+                </div>
+                <div class="step-card fade-in fade-in-delay-2">
+                    <div class="step-number">3</div>
+                    <h3>Connect & Work</h3>
+                    <p>Workers browse jobs, find matching opportunities and contact employers directly</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Get Started?</h2>
+            <p>Join our community today — whether you're looking for work or looking to hire skilled workers</p>
+            <div class="cta-buttons">
+                <a href="#" onclick="showPage('register')" class="btn btn-primary"><i class="fas fa-user-plus"></i> Register Now</a>
+                <a href="#" onclick="showPage('post-job')" class="btn btn-secondary"><i class="fas fa-plus-circle"></i> Post a Job</a>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- ==================== REGISTER PAGE ==================== -->
+<div class="page" id="page-register">
+    <section class="page-header">
+        <div class="container">
+            <h1><i class="fas fa-user-plus"></i> Worker Registration</h1>
+            <p>Register your skills and let employers find you</p>
+        </div>
+    </section>
+    <section class="form-section">
+        <div class="container">
+            <div class="form-container">
+                <div class="form-header">
+                    <div class="form-icon"><i class="fas fa-id-card"></i></div>
+                    <h2>Register as a Worker</h2>
+                    <p>Fill in your details below. It only takes a minute!</p>
+                </div>
+                <div class="alert alert-success" id="register-alert" style="display:none;">
+                    <i class="fas fa-check-circle"></i> <span id="register-msg"></span>
+                </div>
+                <form id="register-form" onsubmit="return handleRegister(event)">
+                    <div class="form-group">
+                        <label for="reg-name"><i class="fas fa-user"></i> Full Name</label>
+                        <input type="text" id="reg-name" class="form-control" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="reg-phone"><i class="fas fa-phone"></i> Phone Number</label>
+                        <input type="tel" id="reg-phone" class="form-control" placeholder="Enter 10-digit phone number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="reg-skill"><i class="fas fa-tools"></i> Your Skill</label>
+                        <select id="reg-skill" class="form-control" required>
+                            <option value="">-- Select your skill --</option>
+                            <option>Plumber</option><option>Electrician</option><option>Carpenter</option>
+                            <option>Painter</option><option>Laborer</option><option>Welder</option>
+                            <option>Mason</option><option>Cleaner</option><option>Gardener</option><option>Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="reg-location"><i class="fas fa-map-marker-alt"></i> Your Location</label>
+                        <input type="text" id="reg-location" class="form-control" placeholder="Enter your city or area" required>
+                    </div>
+                    <div class="form-submit">
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Register Now</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- ==================== POST JOB PAGE ==================== -->
+<div class="page" id="page-post-job">
+    <section class="page-header">
+        <div class="container">
+            <h1><i class="fas fa-plus-circle"></i> Post a Job</h1>
+            <p>Help workers find opportunities — post your job requirement</p>
+        </div>
+    </section>
+    <section class="form-section">
+        <div class="container">
+            <div class="form-container">
+                <div class="form-header">
+                    <div class="form-icon"><i class="fas fa-briefcase"></i></div>
+                    <h2>Post a New Job</h2>
+                    <p>Fill in the job details for workers to find</p>
+                </div>
+                <div class="alert alert-success" id="postjob-alert" style="display:none;">
+                    <i class="fas fa-check-circle"></i> <span id="postjob-msg"></span>
+                </div>
+                <form id="postjob-form" onsubmit="return handlePostJob(event)">
+                    <div class="form-group">
+                        <label for="job-title"><i class="fas fa-heading"></i> Job Title</label>
+                        <input type="text" id="job-title" class="form-control" placeholder="e.g., Plumber Needed for House" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="job-category"><i class="fas fa-tags"></i> Skill Category</label>
+                        <select id="job-category" class="form-control" required>
+                            <option value="General">-- Select category --</option>
+                            <option>Plumber</option><option>Electrician</option><option>Carpenter</option>
+                            <option>Painter</option><option>Laborer</option><option>Welder</option>
+                            <option>Mason</option><option>Cleaner</option><option>Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="job-desc"><i class="fas fa-align-left"></i> Job Description</label>
+                        <textarea id="job-desc" class="form-control" placeholder="Describe the job in detail..." required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="job-location"><i class="fas fa-map-marker-alt"></i> Job Location</label>
+                        <input type="text" id="job-location" class="form-control" placeholder="Enter city or area" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="job-contact"><i class="fas fa-phone"></i> Contact Number</label>
+                        <input type="tel" id="job-contact" class="form-control" placeholder="Enter 10-digit contact number" required>
+                    </div>
+                    <div class="form-submit">
+                        <button type="submit" class="btn btn-success"><i class="fas fa-paper-plane"></i> Post Job</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- ==================== JOBS LISTING PAGE ==================== -->
+<div class="page" id="page-jobs">
+    <section class="page-header">
+        <div class="container">
+            <h1><i class="fas fa-search"></i> Find Jobs</h1>
+            <p>Browse available job opportunities in your area</p>
+        </div>
+    </section>
+    <section class="jobs-section">
+        <div class="container">
+            <!-- Search Bar -->
+            <div class="search-bar" id="search-bar">
+                <form class="search-form" onsubmit="return filterJobs(event)">
+                    <div class="search-group">
+                        <label><i class="fas fa-tools"></i> Skill Category</label>
+                        <select id="search-skill" class="form-control">
+                            <option value="">All Skills</option>
+                            <option>Plumber</option><option>Electrician</option><option>Carpenter</option>
+                            <option>Painter</option><option>Laborer</option><option>Welder</option>
+                            <option>Mason</option><option>Cleaner</option>
+                        </select>
+                    </div>
+                    <div class="search-group">
+                        <label><i class="fas fa-map-marker-alt"></i> Location</label>
+                        <input type="text" id="search-location" class="form-control" placeholder="Enter city or area">
+                    </div>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i> Search</button>
+                    <button type="button" class="btn btn-outline btn-sm" onclick="clearFilters()"><i class="fas fa-times"></i> Clear</button>
+                </form>
+            </div>
+
+            <p id="jobs-count" style="margin-bottom:20px;color:var(--text-muted);font-size:0.9rem;"></p>
+
+            <!-- Job Cards -->
+            <div class="jobs-grid" id="jobs-grid"></div>
+        </div>
+    </section>
+</div>
+
+<!-- ==================== CONTACT PAGE ==================== -->
+<div class="page" id="page-contact">
+    <section class="page-header">
+        <div class="container">
+            <h1><i class="fas fa-envelope"></i> Contact Us</h1>
+            <p>Get in touch with us — we're here to help</p>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info-cards">
+                    <div class="contact-card fade-in">
+                        <div class="contact-card-icon"><i class="fas fa-handshake"></i></div>
+                        <div>
+                            <h4>How Workers Connect with Employers</h4>
+                            <p>Browse the job listings page, find a matching job, and call the employer directly using the contact number provided in each listing.</p>
+                        </div>
+                    </div>
+                    <div class="contact-card fade-in fade-in-delay-1">
+                        <div class="contact-card-icon"><i class="fas fa-phone-alt"></i></div>
+                        <div>
+                            <h4>Phone / WhatsApp</h4>
+                            <p>+91 98765 43210<br>Available Mon - Sat, 9:00 AM to 6:00 PM</p>
+                        </div>
+                    </div>
+                    <div class="contact-card fade-in fade-in-delay-2">
+                        <div class="contact-card-icon"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <h4>Email Us</h4>
+                            <p>help@jobfinder.local<br>We'll respond within 24 hours</p>
+                        </div>
+                    </div>
+                    <div class="contact-card fade-in fade-in-delay-3">
+                        <div class="contact-card-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <h4>Visit Our Office</h4>
+                            <p>Community Center, Main Road<br>Near Bus Stand, City - 110001</p>
+                        </div>
+                    </div>
+                    <div class="contact-card fade-in fade-in-delay-4">
+                        <div class="contact-card-icon"><i class="fas fa-clock"></i></div>
+                        <div>
+                            <h4>Working Hours</h4>
+                            <p>Monday to Saturday: 9:00 AM - 6:00 PM<br>Sunday: Closed</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-container" style="margin:0;">
+                    <div class="form-header">
+                        <div class="form-icon" style="background:var(--accent-light);color:var(--accent-dark);"><i class="fas fa-question-circle"></i></div>
+                        <h2>Frequently Asked Questions</h2>
+                        <p>Common questions from workers and employers</p>
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:20px;">
+                        <div>
+                            <h4 style="color:var(--text-dark);font-size:0.95rem;margin-bottom:6px;"><i class="fas fa-chevron-right" style="color:var(--primary);margin-right:8px;font-size:0.8rem;"></i>Is registration free for workers?</h4>
+                            <p style="color:var(--text-muted);font-size:0.9rem;padding-left:24px;">Yes! Registration is completely free. Workers can sign up and browse all job listings at no cost.</p>
+                        </div>
+                        <div>
+                            <h4 style="color:var(--text-dark);font-size:0.95rem;margin-bottom:6px;"><i class="fas fa-chevron-right" style="color:var(--primary);margin-right:8px;font-size:0.8rem;"></i>How do I contact an employer?</h4>
+                            <p style="color:var(--text-muted);font-size:0.9rem;padding-left:24px;">Each job listing shows the employer's contact number. Simply call or WhatsApp them directly.</p>
+                        </div>
+                        <div>
+                            <h4 style="color:var(--text-dark);font-size:0.95rem;margin-bottom:6px;"><i class="fas fa-chevron-right" style="color:var(--primary);margin-right:8px;font-size:0.8rem;"></i>How do I post a job?</h4>
+                            <p style="color:var(--text-muted);font-size:0.9rem;padding-left:24px;">Go to the "Post Job" page, fill in the job details including title, description, location and your contact number, then click submit.</p>
+                        </div>
+                        <div>
+                            <h4 style="color:var(--text-dark);font-size:0.95rem;margin-bottom:6px;"><i class="fas fa-chevron-right" style="color:var(--primary);margin-right:8px;font-size:0.8rem;"></i>Can I edit or delete my job post?</h4>
+                            <p style="color:var(--text-muted);font-size:0.9rem;padding-left:24px;">Currently, only the admin can edit or delete job posts. Contact us if you need changes to your listing.</p>
+                        </div>
+                        <div>
+                            <h4 style="color:var(--text-dark);font-size:0.95rem;margin-bottom:6px;"><i class="fas fa-chevron-right" style="color:var(--primary);margin-right:8px;font-size:0.8rem;"></i>Which areas do you cover?</h4>
+                            <p style="color:var(--text-muted);font-size:0.9rem;padding-left:24px;">We cover multiple cities and towns. Workers and employers from any location can register and post jobs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- ==================== ADMIN PAGE ==================== -->
+<div class="page" id="page-admin">
+    <section class="page-header">
+        <div class="container">
+            <h1><i class="fas fa-shield-alt"></i> Admin Dashboard</h1>
+            <p>Manage workers and job postings</p>
+        </div>
+    </section>
+    <section class="admin-dashboard">
+        <div class="container">
+            <!-- Admin Login (shown initially) -->
+            <div id="admin-login-section">
+                <div class="admin-login-container">
+                    <div class="form-container">
+                        <div class="form-header">
+                            <div class="form-icon" style="background:#ede9fe;color:#7c3aed;"><i class="fas fa-shield-alt"></i></div>
+                            <h2>Admin Login</h2>
+                            <p>Enter your credentials to access the dashboard</p>
+                        </div>
+                        <div class="alert alert-error" id="admin-error" style="display:none;">
+                            <i class="fas fa-exclamation-circle"></i> Invalid credentials. Use admin / admin123
+                        </div>
+                        <form onsubmit="return handleAdminLogin(event)">
+                            <div class="form-group">
+                                <label><i class="fas fa-user"></i> Username</label>
+                                <input type="text" id="admin-user" class="form-control" placeholder="Enter admin username" required>
+                            </div>
+                            <div class="form-group">
+                                <label><i class="fas fa-lock"></i> Password</label>
+                                <input type="password" id="admin-pass" class="form-control" placeholder="Enter admin password" required>
+                            </div>
+                            <div class="form-submit">
+                                <button type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i> Login</button>
+                            </div>
+                        </form>
+                        <p style="text-align:center;margin-top:20px;font-size:0.85rem;color:var(--text-muted);"><i class="fas fa-info-circle"></i> Default: admin / admin123</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Admin Dashboard (shown after login) -->
+            <div id="admin-dashboard-section" style="display:none;">
+                <div style="display:flex;justify-content:flex-end;margin-bottom:20px;">
+                    <button onclick="adminLogout()" class="btn btn-danger btn-sm"><i class="fas fa-sign-out-alt"></i> Logout</button>
+                </div>
+
+                <div class="stats-grid" style="margin-bottom:40px;">
+                    <div class="stat-card">
+                        <div class="stat-icon blue"><i class="fas fa-briefcase"></i></div>
+                        <div class="stat-number" id="admin-job-count">5</div>
+                        <div class="stat-label">Total Jobs</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon green"><i class="fas fa-users"></i></div>
+                        <div class="stat-number" id="admin-worker-count">5</div>
+                        <div class="stat-label">Total Workers</div>
+                    </div>
+                </div>
+
+                <!-- Jobs Table -->
+                <div class="admin-table-wrap">
+                    <div class="admin-table-header">
+                        <h3><i class="fas fa-briefcase"></i> Job Postings</h3>
+                        <button onclick="showPage('post-job')" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> Add Job</button>
+                    </div>
+                    <table class="admin-table">
+                        <thead>
+                            <tr><th>ID</th><th>Title</th><th>Category</th><th>Location</th><th>Contact</th><th>Actions</th></tr>
+                        </thead>
+                        <tbody id="admin-jobs-tbody"></tbody>
+                    </table>
+                </div>
+
+                <!-- Workers Table -->
+                <div class="admin-table-wrap">
+                    <div class="admin-table-header">
+                        <h3><i class="fas fa-users"></i> Registered Workers</h3>
+                    </div>
+                    <table class="admin-table">
+                        <thead>
+                            <tr><th>ID</th><th>Name</th><th>Phone</th><th>Skill</th><th>Location</th><th>Actions</th></tr>
+                        </thead>
+                        <tbody id="admin-workers-tbody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+</main>
+
+<!-- ======== FOOTER ======== -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3><i class="fas fa-briefcase"></i> JobFinder</h3>
+                <p>Connecting daily wage workers with local employers. Empowering communities through accessible job opportunities.</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#" onclick="showPage('home')">Home</a></li>
+                    <li><a href="#" onclick="showPage('register')">Worker Registration</a></li>
+                    <li><a href="#" onclick="showPage('post-job')">Post a Job</a></li>
+                    <li><a href="#" onclick="showPage('jobs')">Find Jobs</a></li>
+                    <li><a href="#" onclick="showPage('contact')">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Skills We Cover</h4>
+                <ul>
+                    <li><a href="#" onclick="filterBySkill('Plumber')">Plumber</a></li>
+                    <li><a href="#" onclick="filterBySkill('Electrician')">Electrician</a></li>
+                    <li><a href="#" onclick="filterBySkill('Carpenter')">Carpenter</a></li>
+                    <li><a href="#" onclick="filterBySkill('Painter')">Painter</a></li>
+                    <li><a href="#" onclick="filterBySkill('Laborer')">Laborer</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <ul class="footer-contact">
+                    <li><i class="fas fa-map-marker-alt"></i> Community Center, Main Road</li>
+                    <li><i class="fas fa-phone"></i> +91 98765 43210</li>
+                    <li><i class="fas fa-envelope"></i> help@jobfinder.local</li>
+                    <li><i class="fas fa-clock"></i> Mon - Sat: 9AM - 6PM</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Local Job Finder | Community Engagement Program</p>
+        </div>
+    </div>
+</footer>
+
+<!-- ======== JAVASCRIPT ======== -->
+<script src="assets/js/script.js"></script>
+<script>
+// ============================================
+// PREVIEW MODE - Client-Side Data & Routing
+// ============================================
+
+// --- Sample Data (simulates database) ---
+let sampleJobs = [
+    { id: 1, title: "Plumber Needed Urgently", description: "Need a plumber to fix kitchen pipes and bathroom leaks. Work for 2 days.", location: "Delhi", contact: "9876500001", skill_category: "Plumber", created_at: "2026-04-01" },
+    { id: 2, title: "Electrician for House Wiring", description: "Complete house wiring for a 2BHK flat. Must have experience.", location: "Mumbai", contact: "9876500002", skill_category: "Electrician", created_at: "2026-04-02" },
+    { id: 3, title: "Carpenter for Furniture Work", description: "Need a skilled carpenter to make wardrobes and shelves.", location: "Jaipur", contact: "9876500003", skill_category: "Carpenter", created_at: "2026-04-02" },
+    { id: 4, title: "Painter for Office", description: "Office walls need repainting. Area is approximately 1500 sq ft.", location: "Pune", contact: "9876500004", skill_category: "Painter", created_at: "2026-04-03" },
+    { id: 5, title: "Daily Wage Labor - Construction", description: "Laborers needed for a construction site. Daily wage provided.", location: "Chennai", contact: "9876500005", skill_category: "Laborer", created_at: "2026-04-03" }
+];
+
+let sampleWorkers = [
+    { id: 1, name: "Ramesh Kumar", phone: "9876543210", skill: "Plumber", location: "Delhi" },
+    { id: 2, name: "Suresh Yadav", phone: "9123456789", skill: "Electrician", location: "Mumbai" },
+    { id: 3, name: "Anil Sharma", phone: "9988776655", skill: "Carpenter", location: "Jaipur" },
+    { id: 4, name: "Priya Devi", phone: "9876512345", skill: "Painter", location: "Pune" },
+    { id: 5, name: "Vikram Singh", phone: "9001122334", skill: "Laborer", location: "Chennai" }
+];
+
+let nextJobId = 6;
+let nextWorkerId = 6;
+
+// --- SPA Page Navigation ---
+function showPage(page) {
+    // Hide all pages
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    // Show target page
+    document.getElementById('page-' + page).classList.add('active');
+    // Update nav active state
+    document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+    const navLink = document.querySelector('.nav-links a[data-page="' + page + '"]');
+    if (navLink) navLink.classList.add('active');
+    // Scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Close mobile nav
+    document.getElementById('nav-links').classList.remove('active');
+
+    // Render jobs if going to jobs page
+    if (page === 'jobs') renderJobs();
+    // Render admin tables if going to admin
+    if (page === 'admin') renderAdminTables();
+}
+
+// --- Render Job Cards ---
+function renderJobs(filteredJobs) {
+    const jobs = filteredJobs || sampleJobs;
+    const grid = document.getElementById('jobs-grid');
+    const countEl = document.getElementById('jobs-count');
+
+    countEl.innerHTML = '<i class="fas fa-briefcase"></i> Showing <strong style="color:var(--text-dark);">' + jobs.length + '</strong> job(s)';
+
+    if (jobs.length === 0) {
+        grid.innerHTML = '<div class="no-jobs"><i class="fas fa-folder-open"></i><h3>No Jobs Found</h3><p>No jobs match your search criteria.</p></div>';
+        return;
+    }
+
+    grid.innerHTML = jobs.map(job => `
+        <div class="job-card fade-in">
+            <div class="job-card-header">
+                <h3>${job.title}</h3>
+                <span class="job-badge">${job.skill_category}</span>
+            </div>
+            <p>${job.description}</p>
+            <div class="job-meta">
+                <span><i class="fas fa-map-marker-alt"></i> ${job.location}</span>
+                <span><i class="fas fa-phone"></i> ${job.contact}</span>
+                <span><i class="fas fa-clock"></i> Posted: ${job.created_at}</span>
+            </div>
+        </div>
+    `).join('');
+}
+
+// --- Filter Jobs ---
+function filterJobs(e) {
+    e.preventDefault();
+    const skill = document.getElementById('search-skill').value.toLowerCase();
+    const location = document.getElementById('search-location').value.toLowerCase();
+
+    const filtered = sampleJobs.filter(job => {
+        const matchSkill = !skill || job.skill_category.toLowerCase().includes(skill);
+        const matchLoc = !location || job.location.toLowerCase().includes(location);
+        return matchSkill && matchLoc;
+    });
+    renderJobs(filtered);
+    return false;
+}
+
+function clearFilters() {
+    document.getElementById('search-skill').value = '';
+    document.getElementById('search-location').value = '';
+    renderJobs();
+}
+
+function filterBySkill(skill) {
+    showPage('jobs');
+    document.getElementById('search-skill').value = skill;
+    const filtered = sampleJobs.filter(j => j.skill_category === skill);
+    renderJobs(filtered);
+}
+
+// --- Handle Registration ---
+function handleRegister(e) {
+    e.preventDefault();
+    const name = document.getElementById('reg-name').value;
+    const phone = document.getElementById('reg-phone').value;
+    const skill = document.getElementById('reg-skill').value;
+    const location = document.getElementById('reg-location').value;
+
+    if (phone.length !== 10 || isNaN(phone)) {
+        alert('Phone number must be exactly 10 digits.');
+        return false;
+    }
+
+    sampleWorkers.push({ id: nextWorkerId++, name, phone, skill, location });
+
+    const alert_el = document.getElementById('register-alert');
+    document.getElementById('register-msg').textContent = 'Registration successful! Welcome aboard, ' + name + '. Employers can now find you.';
+    alert_el.style.display = 'flex';
+    document.getElementById('register-form').reset();
+
+    setTimeout(() => { alert_el.style.display = 'none'; }, 5000);
+    return false;
+}
+
+// --- Handle Job Posting ---
+function handlePostJob(e) {
+    e.preventDefault();
+    const title = document.getElementById('job-title').value;
+    const category = document.getElementById('job-category').value;
+    const desc = document.getElementById('job-desc').value;
+    const location = document.getElementById('job-location').value;
+    const contact = document.getElementById('job-contact').value;
+
+    if (contact.length !== 10 || isNaN(contact)) {
+        alert('Contact number must be exactly 10 digits.');
+        return false;
+    }
+
+    sampleJobs.unshift({ id: nextJobId++, title, description: desc, location, contact, skill_category: category, created_at: new Date().toISOString().split('T')[0] });
+
+    const alert_el = document.getElementById('postjob-alert');
+    document.getElementById('postjob-msg').textContent = 'Job posted successfully! Workers can now see your listing.';
+    alert_el.style.display = 'flex';
+    document.getElementById('postjob-form').reset();
+
+    setTimeout(() => { alert_el.style.display = 'none'; }, 5000);
+    return false;
+}
+
+// --- Admin Login ---
+function handleAdminLogin(e) {
+    e.preventDefault();
+    const user = document.getElementById('admin-user').value;
+    const pass = document.getElementById('admin-pass').value;
+
+    if (user === 'admin' && pass === 'admin123') {
+        document.getElementById('admin-login-section').style.display = 'none';
+        document.getElementById('admin-dashboard-section').style.display = 'block';
+        renderAdminTables();
+    } else {
+        document.getElementById('admin-error').style.display = 'flex';
+    }
+    return false;
+}
+
+function adminLogout() {
+    document.getElementById('admin-login-section').style.display = 'block';
+    document.getElementById('admin-dashboard-section').style.display = 'none';
+    document.getElementById('admin-user').value = '';
+    document.getElementById('admin-pass').value = '';
+    document.getElementById('admin-error').style.display = 'none';
+}
+
+// --- Render Admin Tables ---
+function renderAdminTables() {
+    document.getElementById('admin-job-count').textContent = sampleJobs.length;
+    document.getElementById('admin-worker-count').textContent = sampleWorkers.length;
+
+    // Jobs table
+    document.getElementById('admin-jobs-tbody').innerHTML = sampleJobs.map(job => `
+        <tr>
+            <td>${job.id}</td>
+            <td><strong>${job.title}</strong></td>
+            <td><span class="job-badge">${job.skill_category}</span></td>
+            <td>${job.location}</td>
+            <td>${job.contact}</td>
+            <td><div class="actions">
+                <button onclick="deleteJob(${job.id})" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</button>
+            </div></td>
+        </tr>
+    `).join('');
+
+    // Workers table
+    document.getElementById('admin-workers-tbody').innerHTML = sampleWorkers.map(w => `
+        <tr>
+            <td>${w.id}</td>
+            <td><strong>${w.name}</strong></td>
+            <td>${w.phone}</td>
+            <td><span class="job-badge">${w.skill}</span></td>
+            <td>${w.location}</td>
+            <td><div class="actions">
+                <button onclick="deleteWorker(${w.id})" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</button>
+            </div></td>
+        </tr>
+    `).join('');
+}
+
+function deleteJob(id) {
+    if (confirm('Are you sure you want to delete this job?')) {
+        sampleJobs = sampleJobs.filter(j => j.id !== id);
+        renderAdminTables();
+    }
+}
+
+function deleteWorker(id) {
+    if (confirm('Are you sure you want to delete this worker?')) {
+        sampleWorkers = sampleWorkers.filter(w => w.id !== id);
+        renderAdminTables();
+    }
+}
+
+// --- Initialize: render jobs on load ---
+document.addEventListener('DOMContentLoaded', function() {
+    renderJobs();
+});
+</script>
+</body>
+</html>
